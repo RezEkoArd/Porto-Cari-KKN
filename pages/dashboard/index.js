@@ -8,23 +8,8 @@ import logo from '../../public/Logo-kkn.png'
 import { Alert } from 'flowbite-react'
 import { HiInformationCircle, HiOutlineX } from "react-icons/hi";
 
-
-
-
-export async function getServerSideProps(){
-
-  let req = await fetch(`https://cari-kkn-be.fly.dev/admin/desa`)
-  let data = await req.json()
-
-  return {
-    props: {
-      data : data.result
-    }
-  }
-}
-
-export default function index({data}) {
-  const [dataDesa , setDataDesa] = useState(data)
+export default function index() {
+  const [dataDesa , setDataDesa] = useState(null)
   const [fetchStatus, setFetchStatus] = useState(false)
   const [showAlert, setShowAlert] = useState(false)
   const [ErrMsg, setErrMsg] = useState('')
@@ -35,7 +20,17 @@ export default function index({data}) {
     setDataDesa([...result])
   }
 
+  const firstFetch = () => {
+    axios.get('https://cari-kkn-be.fly.dev/admin/desa')
+    .then((res) => {
+      let result = res.data.result
+      setDataDesa([...result])
+    })
+    
+  }
+
   useEffect(() => {
+    firstFetch()    
 
     if (fetchStatus) {
      fetchData()
@@ -153,6 +148,11 @@ export default function index({data}) {
                     </td>
                     <td className="py-4 px-6">
                       <div className='flex gap-2'>
+                      <Link href={{
+                        pathname: '/dashboard/[id]',
+                        query: {id: res._id}
+                      }} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Detail</Link>
+
                         <button value={res._id} onClick={handleDelete} className="cursor-pointer focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-1.5  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"> 
                           Delete
                         </button>

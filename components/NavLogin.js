@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar,Dropdown, Avatar } from 'flowbite-react'
 import logo from '../public/Logo-kkn.png'
 import Image from 'next/image'
@@ -6,12 +6,23 @@ import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 
 export default function NavLogin() {
+    const [userName, setUserName] = useState("")
+
+    useEffect(()=>{
+        getUsername()
+    },[])
+
     let router = useRouter()   
     
     const handleSignOut = () => {
         Cookies.remove('token')
         Cookies.remove('username')
         router.push('/')
+    }
+
+    const getUsername = () => {
+       const value =  Cookies.get('username') 
+       setUserName(value)   
     }
 
   return (
@@ -45,7 +56,7 @@ export default function NavLogin() {
             }
             >
             <Dropdown.Header>
-             Hello {Cookies.get('username') !== null ? Cookies.get('username') : "" }  
+             Hello {userName}
             </Dropdown.Header>
             <Dropdown.Divider />
             <Dropdown.Item className='hover:bg-slate-200' onClick={handleSignOut}>

@@ -4,7 +4,8 @@ import { useState } from 'react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 import { Button, Modal } from 'flowbite-react'
-import { HiLightBulb } from "react-icons/hi";
+import { HiLightBulb,HiInformationCircle } from "react-icons/hi";
+import { Alert } from 'flowbite-react'
 
 export default function login() {
   const [inputLogin, setInputLogin] = useState({
@@ -14,6 +15,7 @@ export default function login() {
 
   // Parameter
   const [show, setShow] = useState(false)
+  const [alert,setAlert] = useState(false)
 
   let router = useRouter()
 
@@ -26,19 +28,33 @@ export default function login() {
     .then((res) => {
 
       let data = res.data
-      console.log(data.token)
-
       Cookies.set('token',data.token, {expires:1})
       Cookies.set('username',data.username, {expires:1})
       router.push('/dashboard')
+    })
+    .catch((err) => {
+      setAlert(!alert)
     })
   }
 
   return (
     <>
-      <div className='flex items-center justify-center w-full min-h-screen bg-slate-300'>
+       
+      <div className='flex flex-col items-center justify-center w-full min-h-screen bg-slate-300'>
+      {
+        alert && <Alert
+        color="failure"
+        icon={HiInformationCircle}
+        className="mb-5">
+        <span>
+          <span className="font-medium">
+            Info alert!
+          </span>
+          {' '}Your Username and Password is Wrong, Please Try again.
+        </span>
+      </Alert>
+      }
       <div className="relative flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
-       {/* modals */}
        <>
         
           <div className='absolute top-1 right-1 border-2 rounded-lg bg-slate-100 hover:bg-slate-300 p-1'>

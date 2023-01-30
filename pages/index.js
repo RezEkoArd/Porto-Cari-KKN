@@ -16,7 +16,7 @@ export async function getServerSideProps(){
 
 export default function Home({home, data}) {
   const [dataDesa , setDataDesa] = useState(data.result)
-  console.log(dataDesa)
+
   return (
     <Layout home>
         <div className="mt-10">
