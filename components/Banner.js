@@ -7,14 +7,14 @@ export default function Banner() {
         <div className="h-32 md:h-60 xl:h-96 w-full ">
             <Carousel slideInterval={5000}>
                 <Image
-                src='/Spanduk1.png'
+                src='/Spanduk-KKN-1.png'
                 alt="Banner1"
                 width='1500'
                 height='100'
                 quality={80}  
                 />
                 <Image
-                src='/Spanduk2.png'
+                src='/Spanduk-KKN-2.png'
                 alt="Banner2" 
                 width='1500'
                 height='100'
