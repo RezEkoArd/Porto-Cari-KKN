@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import logo from '../public/Logo-kkn.png'
 import Link from 'next/link'
 
 export default function CardList({data}) {

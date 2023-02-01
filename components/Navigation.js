@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import { Navbar } from 'flowbite-react'
-import logo from '../public/Logo-kkn.png'
 import Link from 'next/link'
 
 export default function Navigation() {

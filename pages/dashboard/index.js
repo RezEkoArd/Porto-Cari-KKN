@@ -4,7 +4,6 @@ import NavLogin from '../../components/NavLogin'
 import { useEffect,  } from 'react'
 import axios from 'axios'
 import Link from 'next/link'
-import logo from '../../public/Logo-kkn.png'
 import { Alert } from 'flowbite-react'
 import { HiInformationCircle, HiOutlineX } from "react-icons/hi";
 

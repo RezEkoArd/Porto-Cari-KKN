@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Navbar,Dropdown,} from 'flowbite-react'
-import logo from '../public/Logo-kkn.png'
 import Image from 'next/image'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'

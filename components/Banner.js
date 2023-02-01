@@ -1,8 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import { Carousel } from 'flowbite-react'
-import Spanduk1 from '../public/Spanduk1.png'
-import Spanduk2 from '../public/spanduk2.png'
 export default function Banner() {
   return (
     <div className="container mt-5 shadow-md mx-auto">
