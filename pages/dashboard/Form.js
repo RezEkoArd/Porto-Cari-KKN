@@ -15,7 +15,7 @@ export default function Form() {
     const {name, value} = event.target;
     setInput(prevData => ({
         ...prevData,
-        [name]: name === 'jumlah_orang' || name === 'pic_phone' ? parseInt(value)
+        [name]: name === 'jumlah_orang' ? parseInt(value)
         : name === 'kebutuhan' || name === 'fasilitas' ? value.split('\n') : value,
         
     }))
@@ -31,10 +31,11 @@ export default function Form() {
             jumlah_orang: input.jumlah_orang,
             fasilitas: input.fasilitas,
             kebutuhan: input.kebutuhan,
-            pic_pejabat: input.pic_pejabat,
+            pic_jabatan: input.pic_jabatan,
             pic_nama: input.pic_nama,
-            pic_phone: input.url_phone
-        })   
+            pic_phone: input.pic_phone
+        })
+
 
         setInput({
             url_photo: "",
@@ -43,7 +44,7 @@ export default function Form() {
             jumlah_orang: "",
             fasilitas: "",
             kebutuhan: "",
-            pic_pejabat: "",
+            pic_jabatan: "",
             pic_nama: "",
             pic_phone: ""
         })

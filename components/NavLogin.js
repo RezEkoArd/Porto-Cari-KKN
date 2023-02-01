@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Navbar,Dropdown, Avatar } from 'flowbite-react'
+import { Navbar,Dropdown,} from 'flowbite-react'
 import logo from '../public/Logo-kkn.png'
 import Image from 'next/image'
 import Cookies from 'js-cookie'
@@ -34,7 +34,7 @@ export default function NavLogin() {
         <Navbar.Brand>
             <div className='flex gap-3'>
             <Image
-                    src={logo}
+                    src='/Logo-kkn.png'
                     alt="logo"
                     width={50}
                     height={50}

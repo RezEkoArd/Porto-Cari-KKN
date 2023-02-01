@@ -14,7 +14,7 @@ export default function Navigation() {
         <Navbar.Brand href="/">
             <div className='flex gap-3'>
               <Image
-              src={logo}
+              src='/Logo-kkn.png'
               alt="logo"
               width={50}
               height={50}

@@ -18,7 +18,7 @@ export default function CardList({data}) {
                       />
                         ) : (
                           <Image className="rounded-t-lg h-60 w-full shadow-md " 
-                              src={logo} 
+                              src='/Logo-kkn.png' 
                               alt="photo-desa"
                               width={200}
                               height={150}

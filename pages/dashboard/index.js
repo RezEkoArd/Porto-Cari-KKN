@@ -122,7 +122,7 @@ export default function index() {
                           />
                         ) : (
                           <Image className="rounded-t-lg shadow-md " 
-                              src={logo} 
+                              src='/Logo-kkn.png' 
                               alt="photo-desa"
                               width={200}
                               height={150}
