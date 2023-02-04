@@ -28,7 +28,7 @@ export default function Navigation() {
         <Navbar.Collapse>
             <div className='flex gap-5 text-lg font-normal p-5'>
               <Link href='/' >
-              Home
+               
               </Link>
               <Link href='/auth/login' className='border-r-3'>
               Login
